@@ -10,3 +10,7 @@
 🍿 Fun facts - what does your team eat for breakfast?
 🧙 Remember, you can do mighty things with the power of [Markdown](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 -->
+
+Parse-Documents-Fast es un grupo de microservicios sobre extracción y transoformacion de PDF como proyecto universitario
+
+Acá iría el readme no-técnico, comercial. :P
