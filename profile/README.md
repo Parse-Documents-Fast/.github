@@ -1,6 +1,6 @@
 # Parse Documents Fast
 
-Plataforma de microservicios orientada a la recepción, validación, procesamiento y conversión de documentos PDF. El sistema extrae el contenido de un PDF a Markdown —el formato canónico de trabajo— y permite descargar los documentos nuevamente en PDF, según se requiera.
+Plataforma de microservicios orientada a la recepción, validación, procesamiento y conversión de documentos PDF. El sistema extrae el contenido de un PDF a Markdown (el formato canónico de trabajo) y permite descargar los documentos nuevamente en PDF, según se requiera.
 
 La arquitectura está compuesta por servicios independientes, desplegados en contenedores y coordinados a través de un punto de entrada único. Cada servicio tiene una responsabilidad acotada y se comunica con los demás mediante contratos estables.
 
@@ -8,12 +8,12 @@ La arquitectura está compuesta por servicios independientes, desplegados en con
 
 Los repositorios de la organización se organizan por responsabilidad:
 
-- **pdf-infra** — Infraestructura transversal del sistema. Proporciona el punto de entrada único mediante un reverse proxy y gateway de API, junto con los componentes de soporte: limitación de tráfico, colas de trabajo, almacenamiento en caché y base de datos.
-- **pdf-main** — Punto de entrada de la API pública y orquestador principal. Recibe las solicitudes, coordina la validación, el encolado y la persistencia, y devuelve las respuestas y estados al cliente.
-- **pdf-validator** — Servicio ligero y síncrono de validación perimetral. Verifica el tipo y la integridad de los archivos recibidos antes de que ingresen al flujo de procesamiento.
-- **pdf-extractor** — Servicio de procesamiento asíncrono e intensivo en cómputo. Convierte documentos PDF a Markdown de forma estructurada, gestionando la carga mediante un grupo de trabajadores con control de presión.
-- **pdf-persistence** — Servicio de persistencia. Almacena los metadatos, el estado y los resultados de cada documento procesado, y resuelve la detección de documentos duplicados.
-- **pdf-converter** — Servicio de conversión de Markdown a PDF mediante Pandoc. Opera de forma síncrona únicamente en el momento de la descarga, sin persistir archivos intermedios en disco.
+- **pdf-infra:** Infraestructura transversal del sistema. Proporciona el punto de entrada único mediante un reverse proxy y gateway de API, junto con los componentes de soporte: limitación de tráfico, colas de trabajo, almacenamiento en caché y base de datos.
+- **pdf-main:** Punto de entrada de la API pública y orquestador principal. Recibe las solicitudes, coordina la validación, el encolado y la persistencia, y devuelve las respuestas y estados al cliente.
+- **pdf-validator:** Servicio ligero y síncrono de validación perimetral. Verifica el tipo y la integridad de los archivos recibidos antes de que ingresen al flujo de procesamiento.
+- **pdf-extractor:** Servicio de procesamiento asíncrono e intensivo en cómputo. Convierte documentos PDF a Markdown de forma estructurada, gestionando la carga mediante un grupo de trabajadores con control de presión.
+- **pdf-persistence:** Servicio de persistencia. Almacena los metadatos, el estado y los resultados de cada documento procesado, y resuelve la detección de documentos duplicados.
+- **pdf-converter:** Servicio de conversión de Markdown a PDF mediante Pandoc. Opera de forma síncrona únicamente en el momento de la descarga, sin persistir archivos intermedios en disco.
 
 ## API pública
 
